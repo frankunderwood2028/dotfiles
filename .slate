@@ -1,0 +1,79 @@
+# Configs
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config secondsBetweenRepeat 0.1
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+#config windowHintsDuration 5
+config windowHintsSpread true
+#config windowHintsOrder persist
+
+# Misc Aliases
+alias showHintsLeftHand hint                    
+alias showNormalHint hint                        
+
+# Abstract positions
+alias full          move screenOriginX;screenOriginY                  screenSizeX;screenSizeY
+alias lefthalf      move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY
+alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY    screenSizeX/2;screenSizeY
+alias tophalf       move screenOriginX;screenOriginY                  screenSizeX;screenSizeY/2
+alias bothalf       move screenOriginX;screenOriginY+screenSizeY/2    screenSizeX;screenSizeY/2
+
+# Numpad location Bindings
+# bind pad0 ${showHintsLeftHand}
+# bind pad1 ${leftless}
+# bind pad2 push bottom bar-resize:screenSizeY/2
+# bind pad3 ${rightless}
+# bind pad4 ${lefthalf}
+# bind pad5 ${full}
+# bind pad6 ${righthalf}
+# bind pad7 ${leftmost}
+# bind pad8 push top bar-resize:screenSizeY/2
+# bind pad9 ${rightmost}
+# bind pad+ throw next
+# bind pad. focus behind
+
+bind e:cmd  ${showNormalHint}
+
+# ======================================
+# The HYPER key
+# ======================================
+
+alias hyper ctrl;shift;alt;cmd
+#alias hyper shift;-
+#alias hyper caps
+
+# Resize Bindings
+bind left:${hyper}  ${lefthalf}
+alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+bind right:${hyper} ${righthalf}
+bind down:${hyper}  ${bothalf}
+bind up:${hyper}    ${tophalf}
+bind f:${hyper}     ${full}
+
+bind [:${hyper} resize -10% +0 top-left
+bind ]:${hyper} resize +10% +0 top-left
+bind o:${hyper} resize +10% +0 bottom-right
+bind p:${hyper} resize -10% +0 top-right
+
+# Nudge bindings
+bind right:ctrl;alt;cmd nudge +10% +0
+bind left:ctrl;alt;cmd nudge -10% +0
+bind up:ctrl;alt;cmd nudge +0 -10%
+bind down:ctrl;alt;cmd  nudge +0 +10%
+
+# Focus Bindings
+bind r:${hyper}     focus right
+bind l:${hyper}     focus left
+bind k:${hyper}     focus up
+bind j:${hyper}     focus down
+
+# App bindings
+bind t:${hyper} focus 'Terminal'
+#bind c:${hyper} focus ‘Google Chrome’
+bind m:${hyper} focus 'Mail'
+bind s:${hyper} focus 'Safari'
+bind q:${hyper} focus 'Sublime Text 2'
