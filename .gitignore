@@ -1,2 +1,7 @@
 */*
 
+.CFUserTextEncoding
+.DS_Store
+.urls
+.bash_history
+.viminfo
